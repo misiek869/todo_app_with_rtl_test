@@ -1,6 +1,12 @@
-import React from 'react'
+import { Item } from '../utils'
+import CardItem from './CardItem'
 
-const List = () => {
+type ListProps = {
+	items: Item[]
+	onDelete: (id: string) => void
+}
+
+const List = ({ items, onDelete }: ListProps) => {
 	return <div></div>
 }
 
