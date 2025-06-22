@@ -1,6 +1,6 @@
-import React from 'react'
+import { ItemWithNoId, Category } from '../utils'
 
-const Form = () => {
+const Form = ({ onSubmit }: { onSubmit: (item: ItemWithNoId) => void }) => {
 	return <div></div>
 }
 
