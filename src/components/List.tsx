@@ -1,4 +1,4 @@
-import { Item } from '../utils'
+import { type Item } from '../utils'
 import CardItem from './CardItem'
 
 type ListProps = {
