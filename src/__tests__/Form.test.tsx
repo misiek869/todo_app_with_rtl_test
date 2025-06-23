@@ -12,4 +12,22 @@ const getElements = () => {
 	}
 }
 
-describe('Form Component', () => {})
+describe('Form Component', () => {
+	let user: UserEvent
+
+	const mockOnSubmit = vi.fn()
+
+	beforeEach(() => {
+		mockOnSubmit.mockClear()
+		user = userEvent.setup()
+		render(<Form onSubmit={mockOnSubmit} />)
+	})
+
+	test('renders form with empty fields at start', () => {
+		const { titleInput, descriptionInput, categorySelect } = getElements()
+
+		expect(titleInput).toHaveValue('')
+		expect(descriptionInput).toHaveValue('')
+		expect(categorySelect).toHaveValue('')
+	})
+})
