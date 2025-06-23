@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { describe, test, expect, vi } from 'vitest'
 import Form from '../components/Form'
 import userEvent, { UserEvent } from '@testing-library/user-event'
+import { use } from 'react'
 
 const getElements = () => {
 	return {
@@ -29,5 +30,21 @@ describe('Form Component', () => {
 		expect(titleInput).toHaveValue('')
 		expect(descriptionInput).toHaveValue('')
 		expect(categorySelect).toHaveValue('')
+	})
+
+	test('submit form with entered values', async () => {
+		const { titleInput, descriptionInput, categorySelect, submitBtn } =
+			getElements()
+
+		await user.type(titleInput, 'New Task')
+		await user.type(descriptionInput, 'Task Description')
+		await user.selectOptions(categorySelect, 'urgent')
+		await user.click(submitBtn)
+
+		expect(mockOnSubmit).toHaveBeenCalledWith({
+			title: 'New Task',
+			description: 'Task Description',
+			category: 'urgent',
+		})
 	})
 })
