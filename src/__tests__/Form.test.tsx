@@ -47,4 +47,12 @@ describe('Form Component', () => {
 			category: 'urgent',
 		})
 	})
+
+	test('validates required fields', async () => {
+		const { submitBtn } = getElements()
+
+		await user.click(submitBtn)
+
+		expect(mockOnSubmit).not.toHaveBeenCalled()
+	})
 })
