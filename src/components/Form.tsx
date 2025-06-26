@@ -14,6 +14,10 @@ const Form = ({ onSubmit }: { onSubmit: (item: ItemWithNoId) => void }) => {
 		}
 
 		onSubmit({ title, description, category })
+
+		setTitle('')
+		setCategory('')
+		setDescription('')
 	}
 
 	const labelStyles = 'text-sm font-medium leading-loose block mb-2'
