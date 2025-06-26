@@ -9,6 +9,10 @@ const Form = ({ onSubmit }: { onSubmit: (item: ItemWithNoId) => void }) => {
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault()
 
+		if (!title || !description || !category) {
+			return
+		}
+
 		onSubmit({ title, description, category })
 	}
 
