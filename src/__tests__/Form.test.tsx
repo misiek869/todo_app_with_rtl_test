@@ -55,4 +55,18 @@ describe('Form Component', () => {
 
 		expect(mockOnSubmit).not.toHaveBeenCalled()
 	})
+
+	test('check if form clears after submition', async () => {
+		const { titleInput, descriptionInput, categorySelect, submitBtn } =
+			getElements()
+
+		await user.type(titleInput, 'New Task')
+		await user.type(descriptionInput, 'Task Description')
+		await user.selectOptions(categorySelect, 'urgent')
+		await user.click(submitBtn)
+
+		expect(titleInput).toHaveValue('')
+		expect(descriptionInput).toHaveValue('')
+		expect(categorySelect).toHaveValue('')
+	})
 })
