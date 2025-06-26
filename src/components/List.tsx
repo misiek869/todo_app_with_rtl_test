@@ -7,7 +7,11 @@ type ListProps = {
 }
 
 const List = ({ items, onDelete }: ListProps) => {
-	return <div></div>
+	return (
+		<section className='mt-8'>
+			<h2 className='text-xl font-semibold mb-2'>Todos</h2>
+		</section>
+	)
 }
 
 export default List

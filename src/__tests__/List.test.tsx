@@ -31,7 +31,8 @@ describe('List component', () => {
 	test('render todo app heading', () => {
 		render(<List items={mockItems} onDelete={mockOnDelete} />)
 
-		expect(screen.getByRole('heading', { level: 2, name: /todos/i }))
-			.toBeInTheDocument
+		expect(
+			screen.getByRole('heading', { level: 2, name: /todos/i })
+		).toBeInTheDocument()
 	})
 })
