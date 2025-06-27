@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { describe, test, expect, vi } from 'vitest'
 import Form from '../components/Form'
-import userEvent, { UserEvent } from '@testing-library/user-event'
+import userEvent, { type UserEvent } from '@testing-library/user-event'
 import { use } from 'react'
 
 const getElements = () => {
