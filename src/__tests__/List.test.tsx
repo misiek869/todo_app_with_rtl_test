@@ -47,7 +47,7 @@ describe('List component', () => {
 
 		const cards = screen.getAllByRole('article')
 
-		expect(cards).toHaveLength(2)
+		expect(cards).toHaveLength(3)
 	})
 
 	test('renders empty grid when items not provided', () => {
