@@ -29,10 +29,10 @@ describe('CardItem component', () => {
 		render(<CardItem {...mockProps} />)
 
 		const deleteButton = screen.getByRole('button', {
-			name: 'Delete Task: 1',
+			name: 'Delete task : 1',
 		})
 
 		await user.click(deleteButton)
-		expect(mockProps.onDelete).toHaveBeenNthCalledWith('1')
+		expect(mockProps.onDelete).toHaveBeenNthCalledWith(1, '1')
 	})
 })
