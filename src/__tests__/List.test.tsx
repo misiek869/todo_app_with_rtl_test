@@ -3,6 +3,12 @@ import { describe, test, expect, vi } from 'vitest'
 import List from '../components/List'
 import { type Item } from '../utils'
 
+vi.mock('../components/CardItem', () => {
+	return {
+		default: () => <article>item card</article>,
+	}
+})
+
 describe('List component', () => {
 	const mockItems: Item[] = [
 		{
@@ -34,5 +40,19 @@ describe('List component', () => {
 		expect(
 			screen.getByRole('heading', { level: 2, name: /todos/i })
 		).toBeInTheDocument()
+	})
+
+	test('renders correct card numbers', () => {
+		render(<List items={mockItems} onDelete={mockOnDelete} />)
+
+		const cards = screen.getAllByRole('article')
+
+		expect(cards).toHaveLength(2)
+	})
+
+	test('renders empty grid when items not provided', () => {
+		render(<List items={[]} onDelete={mockOnDelete} />)
+
+		expect(screen.queryAllByRole('article')).toHaveLength(0)
 	})
 })
